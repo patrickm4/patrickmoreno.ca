@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Why hello there!</title>
+    <meta name="description" content="Patrick Moreno Portfolio">
+    <meta name="author" content="Patrick Moreno">
+
+    <!--<link rel="stylesheet" href="css/styles.css?v=1.0">-->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Spartan:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+    h3 {
+      color: #fff;
+    }
+    .sub-header{
+      width: 30vw;
+    }
+    #shapes{
+      height: 250px;
+      width: 250px;
+      border: 5px solid black;
+      transition: transform 2s ease, border-radius 0.5s ease;
+    }
+    #container{
+      position:absolute;
+      top: 50%;
+      width:100vw;
+      display:flex;
+      justify-content: center;
+      transform: translateY(-50%);
+      align-items: center;
+    }
+    .main-box{
+        height:100%;
+        width:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header{
+        margin-right: 50px;
+        font-size: 25pt;
+        font-family: 'Spartan', sans-serif;
+    }
+    body{
+        margin: 0;
+        transition: all 1s ease-in-out;
+    }
+    .hidden-text{
+        position: absolute;
+        top: 50%;
+        color: #fff;
+        font-family: 'Amatic SC', cursive;
+        z-index: 69;
+    }
+    .I-was-born-in-darkness{
+        position: absolute;
+        top: 50%;
+        /*lmao TODO fix this crazy number*/
+        right: 41.8%;
+        color:#3a3a3a;
+        font-family: 'Amatic SC', cursive;
+    }
+    .can-i-click-this{
+        cursor: pointer;
+        text-decoration: underline;
+        z-index: 69;
+    }
+    @media (max-width: 1000px){
+        .main-box{
+            flex-direction: column;
+        }
+        .header{
+            margin-right: 0;
+            font-size: 76pt;
+        }
+        .hidden-text, .I-was-born-in-darkness{
+            top: 30%;
+        }
+        .hidden-text{
+            margin-left:25px;
+        }
+        #container{
+            overflow:hidden;
+        }
+        #shapes{
+            position:relative;
+            top: -40px;
+            right:-475px;
+            height: 450px;
+            width: 450px;
+        }
+        .can-i-click-this, .hidden-text{
+            font-size: 29pt;
+        }
+    }
+    </style>
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="container">
+        <div class="main-box">
+            <div>
+                <div class="header">Hello world, I'm Patrick Moreno</div>
+                <h3 class="sub-header">I'm a front end developer who can wear many hats. Based out of Surrey BC Canada. Working mostly in Javascript with the Vue framework.</h3>
+                <!-- <h3 class="hidden-text">Great minds think alike. <span onclick="darkness(false)" class="can-i-click-this">Or Not?</span></h3> -->
+                <!-- <h3 onclick="darkness(true)" class="I-was-born-in-darkness can-i-click-this">Too bright?</h3> -->
+            </div>
+          <div id="shapes">
+            <!-- <h4> Other Pages </h4>
+            <div>
+              <div>Contact</div>
+              <div>About me</div>
+              <div>Currently Learning</div>
+              <div>Current project</div>
+              <div>Delicious recipe i've cooked recently</div>
+              <div>Resume</div>
+              <div>Education, make it downloadable and print friendly</div>
+              <div>Blog</div>
+              <div>Photo of me</div>
+              <div>Github, Linkedin links</div>
+            </div> -->
+          </div>
+        </div>
+    </div>
+
+
+    <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+
+        }
+      }
+    }).mount('#app')
+
+    let shape = document.getElementById('shapes');
+    let title = document.getElementsByClassName('header')[0];
+    let degree = 0;
+    let timeId, isCircle = false;
+    let isDark = false
+    const blueGrey = '#252b36'
+
+    function darkness(b) {
+        isDark = b
+        // document.body.style.backgroundColor = isDark ? '#3a3a3a' : '#fff';
+        document.body.style.backgroundColor = isDark ? blueGrey : '#fff';
+        // use a global variable or class to change color easier when adding new elements
+        title.style.color = isDark ? '#fff' : '#000';
+        shape.style.border = isDark ? '5px solid white' : '5px solid black';
+    }
+
+    function rotate() {
+
+        degree += 90;
+        shape.style.transform = `rotate(${degree}deg)`;
+        if(isCircle){
+          shape.style.borderRadius = '0%';
+          isCircle = false;
+        } else {
+          shape.style.borderRadius = '50%';
+          isCircle = true
+        };
+    }
+
+    function startSpin() {
+      console.log("starSpin")
+      timeId = window.setInterval(rotate, 2000);
+    }
+
+    document.addEventListener("visibilitychange", function () {
+        if(document.hidden){
+          clearInterval(timeId)
+        } else {
+          startSpin()
+        }
+    })
+
+    shape.addEventListener("mouseover", function () {
+      if (timeId) clearInterval(timeId)
+    })
+    shape.addEventListener("mouseleave", function () {
+      startSpin()
+    })
+
+    startSpin()
+    darkness(true)
+    </script>
+  <!--<script src="js/scripts.js"></script>-->
+</body>
+</html>
