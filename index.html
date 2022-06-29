@@ -105,6 +105,7 @@
 
 <body>
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
 
     <div id="container">
         <div class="main-box">
@@ -129,20 +130,42 @@
               <div>Github, Linkedin links</div>
             </div> -->
           </div>
+          <div id="app">
+            <router-link to="/">Home</router-link>
+            <router-link to="/about">About</router-link>
+            {{test}}
+            <router-view></router-view>
+          </div>
         </div>
     </div>
 
 
     <script>
     const { createApp } = Vue
+    const Home = { template: '<div>Home</div>' }
+    const About = { template: '<div>About</div>' }
 
-    createApp({
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/about', component: About },
+    ]
+
+    const router = VueRouter.createRouter({
+      // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+      history: VueRouter.createWebHashHistory(),
+      routes, // short for `routes: routes`
+    })
+
+    const app = Vue.createApp({
       data() {
         return {
-
+          test: "YEEET"
         }
       }
-    }).mount('#app')
+    })
+
+    app.use(router)
+    app.mount('#app')
 
     let shape = document.getElementById('shapes');
     let title = document.getElementsByClassName('header')[0];
