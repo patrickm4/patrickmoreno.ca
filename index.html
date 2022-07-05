@@ -106,6 +106,7 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="./routes/about.js"></script>
 
     <div id="container">
         <div class="main-box">
@@ -130,12 +131,14 @@
               <div>Github, Linkedin links</div>
             </div> -->
           </div>
+
           <div id="app">
             <router-link to="/">Home</router-link>
             <router-link to="/about">About</router-link>
             {{test}}
             <router-view></router-view>
           </div>
+
         </div>
     </div>
 
@@ -143,11 +146,13 @@
     <script>
     const { createApp } = Vue
     const Home = { template: '<div>Home</div>' }
-    const About = { template: '<div>About</div>' }
+    // import Home from './routes/home.vue'
+    // const Home = require('./routes/home.vue')
+    // const About = { template: '<div>About</div>' }
 
     const routes = [
       { path: '/', component: Home },
-      { path: '/about', component: About },
+      { path: '/about', component: about },
     ]
 
     const router = VueRouter.createRouter({
