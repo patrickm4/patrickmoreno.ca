@@ -108,8 +108,6 @@
         }
         #shapes{
           position:relative;
-          /* top: -40px;
-          right:-475px; */
           top: 0;
           right: -50%;
           height: 450px;
@@ -118,6 +116,11 @@
         .can-i-click-this, .hidden-text{
             font-size: 29pt;
         }
+    }
+    @media (max-width: 475px){
+      .header{
+        font-size: 20vw;
+      }
     }
     </style>
 
@@ -212,7 +215,7 @@
 
     function rotate() {
       spins.push('wee')
-      
+
       if (spins.length > 5) {
         document.getElementById('wee').style.opacity = '1';
       } else {
