@@ -15,17 +15,17 @@
 
     <style>
     h3 {
-      color: #fff;
+      color: rgb(200,200,250);
     }
     .sub-header{
       width: 30vw;
+      line-height: 1.5;
     }
     #wee {
       position:absolute;
       top: 50%;
       left:10%;
       color: #fff;
-      /* display:none; */
       opacity: 0;
       transition: 0.5s;
     }
@@ -35,6 +35,7 @@
       width: 250px;
       border: 5px solid black;
       transition: transform 2s ease, border-radius 0.5s ease;
+      overflow: visible;
     }
     #container{
       position:absolute;
@@ -44,6 +45,10 @@
       justify-content: center;
       transform: translateY(-50%);
       align-items: center;
+      font-family: 'Spartan', sans-serif;
+    }
+    .title-box{
+      margin-right: 4rem;
     }
     .main-box{
         height:100%;
@@ -53,9 +58,7 @@
         align-items: center;
     }
     .header{
-        margin-right: 50px;
-        font-size: 25pt;
-        font-family: 'Spartan', sans-serif;
+      font-size: 25pt;
     }
     body{
         margin: 0;
@@ -85,25 +88,32 @@
         .main-box{
             flex-direction: column;
         }
+        .sub-header{
+          margin-left: 2em;
+        }
         .header{
-            margin-right: 0;
-            font-size: 76pt;
+          margin-left: 2rem;
+          margin-right: 0;
+          font-size: 76pt;
         }
         .hidden-text, .I-was-born-in-darkness{
-            top: 30%;
+          top: 30%;
         }
         .hidden-text{
-            margin-left:25px;
+          margin-left:25px;
         }
         #container{
-            overflow:hidden;
+          overflow:hidden;
+          height:100vh;
         }
         #shapes{
-            position:relative;
-            top: -40px;
-            right:-475px;
-            height: 450px;
-            width: 450px;
+          position:relative;
+          /* top: -40px;
+          right:-475px; */
+          top: 0;
+          right: -50%;
+          height: 450px;
+          width: 450px;
         }
         .can-i-click-this, .hidden-text{
             font-size: 29pt;
@@ -122,12 +132,12 @@
 
     <div id="container">
         <div class="main-box">
-            <div>
-                <div class="header">Hello world, I'm Patrick Moreno</div>
-                <h3 class="sub-header">I'm a front end developer who can wear many hats. Based out of Surrey BC Canada. Working mostly in Javascript with the Vue framework.</h3>
-                <!-- <h3 class="hidden-text">Great minds think alike. <span onclick="darkness(false)" class="can-i-click-this">Or Not?</span></h3> -->
-                <!-- <h3 onclick="darkness(true)" class="I-was-born-in-darkness can-i-click-this">Too bright?</h3> -->
-            </div>
+          <div class="title-box">
+              <div class="header">Patrick Moreno</div>
+              <h3 class="sub-header">Full Stack developer with a preference for Front End. Based out of BC, Canada.</h3>
+              <!-- <h3 class="hidden-text">Great minds think alike. <span onclick="darkness(false)" class="can-i-click-this">Or Not?</span></h3> -->
+              <!-- <h3 onclick="darkness(true)" class="I-was-born-in-darkness can-i-click-this">Too bright?</h3> -->
+          </div>
           <div id="shapes">
             <div id="wee">Weeee</div>
             <!-- <h4> Other Pages </h4>
@@ -148,7 +158,7 @@
           <div id="app">
             <!-- <router-link to="/">Home</router-link> -->
             <!-- <router-link to="/about">About</router-link> -->
-            {{test}}
+            <!-- {{test}} -->
             <!-- <router-view></router-view> -->
           </div>
 
@@ -201,22 +211,15 @@
     }
 
     function rotate() {
-      spins.push('wee')
-
       if (spins.length > 5) {
-        // document.getElementById('wee').style.display = 'block';
         document.getElementById('wee').style.opacity = '1';
       } else {
         document.getElementById('wee').style.opacity = '0';
-        // document.getElementById('wee').style.display = 'none';
       }
 
       setTimeout(() => {
         spins.pop()
       }, 3000)
-
-      console.log("spins", spins)
-
 
       degree += 90;
       shape.style.transform = `rotate(${degree}deg)`;
