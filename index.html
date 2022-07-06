@@ -104,9 +104,11 @@
 </head>
 
 <body>
+    <!-- use this CDN link for prod -->
+    <!-- <script src="https://unpkg.com/vue/dist/vue.global.prod.js"></script> -->
     <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://unpkg.com/vue-router@4"></script>
-    <script src="./routes/about.js"></script>
+    <!-- <script src="https://unpkg.com/vue-router@4"></script> -->
+    <!-- <script src="./routes/about.js"></script> -->
 
     <div id="container">
         <div class="main-box">
@@ -143,23 +145,24 @@
     </div>
 
 
-    <script>
+    <script type="module">
     const { createApp } = Vue
-    const Home = { template: '<div>Home</div>' }
-    // import Home from './routes/home.vue'
-    // const Home = require('./routes/home.vue')
+    // const Home = { template: '<div>Home</div>' }
+    // // import Home from './routes/home.vue'
+    // // const Home = require('./routes/home.vue')
     // const About = { template: '<div>About</div>' }
-
-    const routes = [
-      { path: '/', component: Home },
-      { path: '/about', component: about },
-    ]
-
-    const router = VueRouter.createRouter({
-      // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-      history: VueRouter.createWebHashHistory(),
-      routes, // short for `routes: routes`
-    })
+    //
+    // const routes = [
+    //   { path: '/', component: Home },
+    //   { path: '/about', component: About },
+    // ]
+    //
+    // const router = VueRouter.createRouter({
+    //   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+    //   history: VueRouter.createWebHashHistory(),
+    //   routes, // short for `routes: routes`
+    // })
+    // app.use(router)
 
     const app = Vue.createApp({
       data() {
@@ -169,7 +172,6 @@
       }
     })
 
-    app.use(router)
     app.mount('#app')
 
     let shape = document.getElementById('shapes');
