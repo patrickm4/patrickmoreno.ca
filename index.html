@@ -20,7 +20,17 @@
     .sub-header{
       width: 30vw;
     }
+    #wee {
+      position:absolute;
+      top: 50%;
+      left:10%;
+      color: #fff;
+      /* display:none; */
+      opacity: 0;
+      transition: 0.5s;
+    }
     #shapes{
+      position:relative;
       height: 250px;
       width: 250px;
       border: 5px solid black;
@@ -119,6 +129,7 @@
                 <!-- <h3 onclick="darkness(true)" class="I-was-born-in-darkness can-i-click-this">Too bright?</h3> -->
             </div>
           <div id="shapes">
+            <div id="wee">Weeee</div>
             <!-- <h4> Other Pages </h4>
             <div>
               <div>Contact</div>
@@ -135,10 +146,10 @@
           </div>
 
           <div id="app">
-            <router-link to="/">Home</router-link>
-            <router-link to="/about">About</router-link>
+            <!-- <router-link to="/">Home</router-link> -->
+            <!-- <router-link to="/about">About</router-link> -->
             {{test}}
-            <router-view></router-view>
+            <!-- <router-view></router-view> -->
           </div>
 
         </div>
@@ -178,33 +189,48 @@
     let title = document.getElementsByClassName('header')[0];
     let degree = 0;
     let timeId, isCircle = false;
+    let spins = [];
     let isDark = false
     const blueGrey = '#252b36'
 
     function darkness(b) {
         isDark = b
-        // document.body.style.backgroundColor = isDark ? '#3a3a3a' : '#fff';
         document.body.style.backgroundColor = isDark ? blueGrey : '#fff';
-        // use a global variable or class to change color easier when adding new elements
         title.style.color = isDark ? '#fff' : '#000';
         shape.style.border = isDark ? '5px solid white' : '5px solid black';
     }
 
     function rotate() {
+      spins.push('wee')
 
-        degree += 90;
-        shape.style.transform = `rotate(${degree}deg)`;
-        if(isCircle){
-          shape.style.borderRadius = '0%';
-          isCircle = false;
-        } else {
-          shape.style.borderRadius = '50%';
-          isCircle = true
-        };
+      if (spins.length > 5) {
+        // document.getElementById('wee').style.display = 'block';
+        document.getElementById('wee').style.opacity = '1';
+      } else {
+        document.getElementById('wee').style.opacity = '0';
+        // document.getElementById('wee').style.display = 'none';
+      }
+
+      setTimeout(() => {
+        spins.pop()
+      }, 3000)
+
+      console.log("spins", spins)
+
+
+      degree += 90;
+      shape.style.transform = `rotate(${degree}deg)`;
+      if(isCircle){
+        shape.style.borderRadius = '0%';
+        isCircle = false;
+      } else {
+        shape.style.borderRadius = '50%';
+        isCircle = true
+      };
     }
 
     function startSpin() {
-      console.log("starSpin")
+      rotate()
       timeId = window.setInterval(rotate, 2000);
     }
 
@@ -217,7 +243,7 @@
     })
 
     shape.addEventListener("mouseover", function () {
-      if (timeId) clearInterval(timeId)
+      if (timeId) { clearInterval(timeId), timeId = false }
     })
     shape.addEventListener("mouseleave", function () {
       startSpin()
@@ -226,6 +252,5 @@
     startSpin()
     darkness(true)
     </script>
-  <!--<script src="js/scripts.js"></script>-->
 </body>
 </html>
