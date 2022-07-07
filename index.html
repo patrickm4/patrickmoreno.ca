@@ -8,121 +8,10 @@
     <meta name="description" content="Patrick Moreno Portfolio">
     <meta name="author" content="Patrick Moreno">
 
-    <!--<link rel="stylesheet" href="css/styles.css?v=1.0">-->
+    <link rel="stylesheet" href="css/styles.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Spartan:wght@500&display=swap" rel="stylesheet">
-
-    <style>
-    h3 {
-      color: rgb(200,200,250);
-    }
-    .sub-header{
-      width: 30vw;
-      line-height: 1.5;
-    }
-    #wee {
-      position:absolute;
-      top: 50%;
-      left:10%;
-      color: #fff;
-      opacity: 0;
-      transition: 0.5s;
-    }
-    #shapes{
-      position:relative;
-      height: 250px;
-      width: 250px;
-      border: 5px solid black;
-      transition: transform 2s ease, border-radius 0.5s ease;
-      overflow: visible;
-    }
-    #container{
-      position:absolute;
-      top: 50%;
-      width:100vw;
-      display:flex;
-      justify-content: center;
-      transform: translateY(-50%);
-      align-items: center;
-      font-family: 'Spartan', sans-serif;
-    }
-    .title-box{
-      margin-right: 4rem;
-    }
-    .main-box{
-        height:100%;
-        width:100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .header{
-      font-size: 50pt;
-    }
-    body{
-        margin: 0;
-        transition: all 1s ease-in-out;
-    }
-    .hidden-text{
-        position: absolute;
-        top: 50%;
-        color: #fff;
-        font-family: 'Amatic SC', cursive;
-        z-index: 69;
-    }
-    .I-was-born-in-darkness{
-        position: absolute;
-        top: 50%;
-        /*lmao TODO fix this crazy number*/
-        right: 41.8%;
-        color:#3a3a3a;
-        font-family: 'Amatic SC', cursive;
-    }
-    .can-i-click-this{
-        cursor: pointer;
-        text-decoration: underline;
-        z-index: 69;
-    }
-    @media (max-width: 1000px){
-        .main-box{
-            flex-direction: column;
-        }
-        .sub-header{
-          margin-left: 2em;
-        }
-        .header{
-          margin-left: 2rem;
-          margin-right: 0;
-          font-size: 76pt;
-        }
-        .hidden-text, .I-was-born-in-darkness{
-          top: 30%;
-        }
-        .hidden-text{
-          margin-left:25px;
-        }
-        #container{
-          overflow:hidden;
-          height:100vh;
-        }
-        #shapes{
-          position:relative;
-          top: 0;
-          right: -50%;
-          height: 450px;
-          width: 450px;
-        }
-        .can-i-click-this, .hidden-text{
-            font-size: 29pt;
-        }
-    }
-    @media (max-width: 475px){
-      .header{
-        font-size: 20vw;
-      }
-    }
-    </style>
 
 </head>
 
@@ -141,14 +30,16 @@
               <!-- <h3 class="hidden-text">Great minds think alike. <span onclick="darkness(false)" class="can-i-click-this">Or Not?</span></h3> -->
               <!-- <h3 onclick="darkness(true)" class="I-was-born-in-darkness can-i-click-this">Too bright?</h3> -->
 
-              <div>
-                <div>Github</div>
-                <div>Linkedin</div>
+              <div class="links">
+                <a href="https://github.com/patrickm4" target="_blank">Github</a>
+                <a href="https://www.linkedin.com/in/patrick-moreno/" target="_blank">Linkedin</a>
               </div>
 
-              <button>About</button>
-              <button>Experience</button>
-              <button>Work</button>
+              <div class="nav-btns">
+                <button>About</button>
+                <button>Experience</button>
+                <button>Work</button>
+              </div>
           </div>
           <div id="shapes">
             <div id="wee">Weeee</div>
