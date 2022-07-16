@@ -80,6 +80,18 @@ body{
     text-decoration: underline;
     z-index: 69;
 }
+
+.feature-btns{
+  color: #fff;
+  margin-right: 0.5em;
+  padding: 1em 2em;
+  border-radius: 1.5em;
+  background-color: rgba(0,0,0,0);
+  border: 1px #cad181 solid;
+  cursor: pointer;
+  font-family: 'Spartan', sans-serif;
+}
+
 @media (max-width: 1000px){
     .main-box{
         flex-direction: column;
