@@ -91,6 +91,10 @@ body{
   cursor: pointer;
   font-family: 'Spartan', sans-serif;
 }
+.feature-btns:hover{
+  color: #3a3a3a;
+  background-color: #cad181;
+}
 
 @media (max-width: 1000px){
     .main-box{
