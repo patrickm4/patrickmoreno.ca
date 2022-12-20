@@ -52,11 +52,16 @@
 	--t-bg: var(--c-white);
 	--t-subdue: var(--c-gray);
 	--t-active: var(--c-blue);
+
+	/* bluebg */
+
+	--b-bg: rgb(1,17,55)
 }
 
 body {
 	margin: 0;
-	color: var(--t-fg);
+	color: var(--c-white);
+	background-color: var(--b-bg);
 	font-family: 'Inter', 'system-ui', sans-serif;
 }
 
