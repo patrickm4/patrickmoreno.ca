@@ -213,14 +213,20 @@ const featuredProject = projects[0];
 			<!-- <div class="gradient"></div>
 			<div class="gradient2"></div> -->
 			<div class="overlay">
-				<h1 class="title">
-					Patrick Moreno
-				</h1>
-				<div class="roles">
+				<div style="display:flex;align-items:center;position:relative;">
+					<h1 class="title">
+						Patrick Moreno
+					</h1>
+					<div id="shapes" style="position:absolute"></div>
+				</div>
+				<!-- <div class="roles">
 					<span class="role">👩‍💻 About <span class="invert">👩‍💻 About</span></span>
 					<span class="role">🎤 Experience <span class="invert">🎤 Experience</span></span>
 					<span class="role">✏️ Projects <span class="invert">✏️ Projects</span></span>
-				</div>
+				</div> -->
+				<div>
+					Full Stack developer with a preference for Front End. Based out of BC, Canada.
+				</div>			
 			</div>
 		</header>
 		<main class="wrapper">
@@ -246,5 +252,58 @@ const featuredProject = projects[0];
 			</div>
 		</main>
 		<Footer />
+		<script>
+			//shape magic
+			let shape = document.getElementById('shapes');
+			let degree = 0;
+			let timeId, isCircle = false;
+			// let spins = [];
+
+			function rotate() {
+				// spins.push('wee')
+
+				// if (spins.length > 5) {
+				// 	document.getElementById('wee').style.opacity = '1';
+				// } else {
+				// 	document.getElementById('wee').style.opacity = '0';
+				// }
+
+				// setTimeout(() => {
+				// 	spins.pop()
+				// }, 3000)
+
+				degree += 90;
+				shape.style.transform = `rotate(${degree}deg)`;
+				if(isCircle){
+					shape.style.borderRadius = '0%';
+					isCircle = false;
+				} else {
+					shape.style.borderRadius = '50%';
+					isCircle = true
+				};
+			}
+
+			function startSpin() {
+				rotate()
+				timeId = window.setInterval(rotate, 2000);
+			}
+
+			document.addEventListener("visibilitychange", function () {
+					if(document.hidden){
+						clearInterval(timeId)
+					} else {
+						startSpin()
+					}
+			})
+
+			// shape.addEventListener("mouseover", function () {
+			// 	if (timeId) { clearInterval(timeId), timeId = false }
+			// })
+			// shape.addEventListener("mouseleave", function () {
+			// 	startSpin()
+			// })
+
+			startSpin()
+		</script>
 	</body>
 </html>

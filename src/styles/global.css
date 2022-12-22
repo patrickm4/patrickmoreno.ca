@@ -97,3 +97,12 @@ h1 {
 	padding-left: 2rem;
 	padding-right: 2rem;
 }
+
+#shapes{
+	position:relative;
+	height: 250px;
+	width: 250px;
+	border: 5px solid var(--c-white);
+	transition: transform 2s ease, border-radius 0.5s ease;
+	overflow: visible;
+  }
