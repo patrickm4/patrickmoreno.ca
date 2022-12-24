@@ -231,17 +231,17 @@ const featuredProject = projects[0];
 		</header>
 		<main class="wrapper">
 			<div class="grid">
-				<div class="section">
+				<!-- <div class="section">
 					<h3 class="sectionTitle">Selected Work</h3>
 					<PortfolioPreview project={featuredProject} />
 					<div class="buttonContainer">
 						<a href="/products/" class="button">View All</a>
 					</div>
-				</div>
+				</div> -->
 				<div class="section">
 					<h3 class="sectionTitle">About me</h3>
 					<p class="bio">
-						<span>Hello!</span> I’m Patrick, and this is my website. It was made using{' '}
+						<span>Hi 👋</span> I’m Patrick, and this is my website. It was made using{' '}
 						<a href="https://github.com/withastro/astro" target="_blank" rel="nofollow"> Astro</a>,
 						a new way to build static sites. This is just an example template for you to modify.
 					</p>
@@ -257,6 +257,7 @@ const featuredProject = projects[0];
 			let shape = document.getElementById('shapes');
 			let degree = 0;
 			let timeId, isCircle = false;
+			let spinning = false;
 			// let spins = [];
 
 			function rotate() {
@@ -285,16 +286,21 @@ const featuredProject = projects[0];
 
 			function startSpin() {
 				rotate()
+				spinning = true
 				timeId = window.setInterval(rotate, 2000);
 			}
 
 			document.addEventListener("visibilitychange", function () {
 					if(document.hidden){
 						clearInterval(timeId)
-					} else {
+						spinning = false
+						console.log("hidden")
+					} else if (!spinning) {
 						startSpin()
+						console.log("visible")
 					}
 			})
+			
 
 			// shape.addEventListener("mouseover", function () {
 			// 	if (timeId) { clearInterval(timeId), timeId = false }
@@ -303,6 +309,7 @@ const featuredProject = projects[0];
 			// 	startSpin()
 			// })
 
+			console.log("startSpin")
 			startSpin()
 		</script>
 	</body>
