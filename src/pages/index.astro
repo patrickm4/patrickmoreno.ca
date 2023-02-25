@@ -41,7 +41,9 @@ const featuredProject = projects[0];
 				width: 100%;
 				height: auto;
 			}
-
+			.front-about-img {
+				margin-top: 4.1rem;
+			}
 			.gradient,
 			.gradient2 {
 				background-image: url('/assets/mesh-gradient.jpg');
@@ -202,16 +204,6 @@ const featuredProject = projects[0];
 	<body>
 		<Nav />
 		<header class="hero">
-			<!-- <img
-				width="1600"
-				height="1131"
-				class="img"
-				src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75"
-				srcset="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75 800w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75 1200w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=75 1600w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=2400&q=75 2400w"
-				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
-			/> -->
-			<!-- <div class="gradient"></div>
-			<div class="gradient2"></div> -->
 			<div class="overlay">
 				<div style="display:flex;align-items:center;position:relative;">
 					<h1 class="title">
@@ -219,25 +211,13 @@ const featuredProject = projects[0];
 					</h1>
 					<div id="shapes" style="position:absolute;right:-55%;"></div>
 				</div>
-				<!-- <div class="roles">
-					<span class="role">👩‍💻 About <span class="invert">👩‍💻 About</span></span>
-					<span class="role">🎤 Experience <span class="invert">🎤 Experience</span></span>
-					<span class="role">✏️ Projects <span class="invert">✏️ Projects</span></span>
-				</div> -->
 				<div class="front-page-subhead">
-					I'm a web developer. Currently employed at <a href="https://www.tmmedia.ca/" target="_blank" class="link"></a>Techno Monkey Media. Open to freelance work, reach out and we'll have a chat!
+					I'm a web developer. Currently employed at <a href="https://www.tmmedia.ca/" target="_blank" class="link"></a>Techno Monkey Media. <p>Reach out and let's chat about something!</p>
 				</div>			
 			</div>
 		</header>
 		<main class="wrapper">
 			<div class="grid">
-				<!-- <div class="section">
-					<h3 class="sectionTitle">Selected Work</h3>
-					<PortfolioPreview project={featuredProject} />
-					<div class="buttonContainer">
-						<a href="/products/" class="button">View All</a>
-					</div>
-				</div> -->
 				<div class="section">
 					<h3 class="sectionTitle">About me</h3>
 					<p class="bio">
@@ -254,7 +234,12 @@ const featuredProject = projects[0];
 					</p>
 					<p>
 						<a href="/about">Read more</a>
+						<a class="link" href="https://www.linkedin.com/in/patrick-moreno/" target="_blank"> LinkedIn</a>
+						<a class="link" href="https://github.com/patrickm4" target="_blank"> Github</a>
 					</p>					
+				</div>
+				<div>
+					<img class="front-about-img" src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg"/>
 				</div>
 				<!-- <div>
 					<div>Contact</div>
