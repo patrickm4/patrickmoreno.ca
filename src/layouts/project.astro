@@ -89,13 +89,17 @@ const { content } = Astro.props;
 			<div class="wrapper">
 				{content.tags.map((t) => <span class="tag">{t}</span>)}
 				<h3 class="tagline">{content.description}</h3>
+				<div>
+					<label>Repo:</label>
+					<a href={content.repoLink}>{content.repoName}</h4>
+				</div>	
 			</div>
 		</div>
 		<div class="wrapper">
 			<div class="content"><slot /></div>
 		</div>
 		<footer>
-			<a href="/projects" class="button">View More</a>
+			<a href="/projects" class="button">View Other Projects</a>
 		</footer>
 		<Footer />
 	</body>
