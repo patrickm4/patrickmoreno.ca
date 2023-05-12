@@ -199,6 +199,9 @@ const featuredProject = projects[0];
 				text-align: center;
 				margin-top: 2em;
 			}
+			.link {
+				text-decoration: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -206,13 +209,17 @@ const featuredProject = projects[0];
 		<header class="hero">
 			<div class="overlay">
 				<div style="display:flex;align-items:center;position:relative;">
-					<h1 class="title">
-						Patrick Moreno
-					</h1>
+					<div>
+						<h1 class="title">
+							Patrick Moreno
+						</h1>
+						<h2>Full-time badass, part-time web developer</h2>
+					</div>
+					<!-- TODO stop spinning on hover -->
 					<div id="shapes" style="position:absolute;right:-55%;"></div>
 				</div>
 				<div class="front-page-subhead">
-					I'm a web developer. Currently employed at <a href="https://www.tmmedia.ca/" target="_blank" class="link"></a>Techno Monkey Media. <p>Reach out and let's chat about something!</p>
+					I'm a full stack developer based out of BC, Canada. Always striving to build optimized code and amazing user experiences. Currently employed at <a href="https://www.tmmedia.ca/" target="_blank" class="link">Techno Monkey Media.</a>
 				</div>			
 			</div>
 		</header>
@@ -225,19 +232,20 @@ const featuredProject = projects[0];
 						<!-- TODO be more personable, enthusiastic -->
 						<!-- what are my passions, my goals -->
 						<p>
-							Interested in progressing my career in software. Graduated 2019 with a Diploma in Digital Design & Development at BCIT. Based out of BC, Canada. I also like designing logos using Illustrator or editing images with Photoshop.
+							Focused and passionate about software engineering. A part of me also loves to design.
 						</p>
 						<p>
-							Currently learning C# and Rust.
+							Currently expanding my knowledge in C# and Rust.
 						</p>
 						<p>
-							Always looking at side hustles and little projects to do. Currently selling TCG cards like Pokémon.
+							Check me out on
+							<a class="link" href="https://www.linkedin.com/in/patrick-moreno/" target="_blank"> LinkedIn</a>
+							and
+							<a class="link" href="https://github.com/patrickm4" target="_blank"> Github</a>
 						</p>
 					</p>
 					<p>
-						<a href="/about">Read more</a>
-						<a class="link" href="https://www.linkedin.com/in/patrick-moreno/" target="_blank"> LinkedIn</a>
-						<a class="link" href="https://github.com/patrickm4" target="_blank"> Github</a>
+						<a href="/about">More about me</a>
 					</p>					
 				</div>
 				<div>
@@ -265,21 +273,8 @@ const featuredProject = projects[0];
 			let degree = 0;
 			let timeId, isCircle = false;
 			let spinning = false;
-			// let spins = [];
 
 			function rotate() {
-				// spins.push('wee')
-
-				// if (spins.length > 5) {
-				// 	document.getElementById('wee').style.opacity = '1';
-				// } else {
-				// 	document.getElementById('wee').style.opacity = '0';
-				// }
-
-				// setTimeout(() => {
-				// 	spins.pop()
-				// }, 3000)
-
 				degree += 90;
 				shape.style.transform = `rotate(${degree}deg)`;
 				if(isCircle){
@@ -305,14 +300,6 @@ const featuredProject = projects[0];
 						startSpin()
 					}
 			})
-
-
-			// shape.addEventListener("mouseover", function () {
-			// 	if (timeId) { clearInterval(timeId), timeId = false }
-			// })
-			// shape.addEventListener("mouseleave", function () {
-			// 	startSpin()
-			// })
 
 			startSpin()
 		</script>
