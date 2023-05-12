@@ -1,0 +1,54 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<html lang="en">
+	<head>
+		<MainHead
+			title="Patrick Moreno"
+			description="What's Patrick been up to 🤔"
+		/>
+		<style>
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+			}
+
+			.heroImg img {
+				width: 100%;
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+				margin-top: 4em;
+			}
+
+			.wrapper.bio {
+				max-width: 50em;
+			}
+            .heading-contact {
+                margin-left: 2rem;
+            }
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<div class="wrapper">
+			<h1 class="heading-contact">Contact</h1>
+			<div class="bio wrapper">
+				<p>
+					Test P tag 1
+				</p>
+				<h3>Test H3</h3>
+				<p>
+					Test P tag 2
+				</p>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>

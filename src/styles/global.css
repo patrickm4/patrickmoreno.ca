@@ -1,5 +1,24 @@
 /* Global variables */
 :root {
+	/* atom one dark */
+	--atom-bg: #282c34;
+	--atom-currentline: #0A99bbff;
+	--atom-currentcell: #00000000;
+	--atom-occurrence: #434957;
+	--atom-ctrlclick: #56b6c2;
+	--atom-sideareas: #21252b;
+	--atom-matched_p: #434957;
+	--atom-unmatched_p: #4Dff0000;
+	--atom-normal: #abb2bf;
+	--atom-keyword: #c678dd;
+	--atom-builtin: #56b6c2;
+	--atom-definition: #61afef;
+	--atom-comment: #5c6370;
+	--atom-string: #98c379;
+	--atom-number: #d19a66;
+	--atom-instance: #e5c07b;
+	--atom-element: #e06c75;
+
 	/* Colors */
 	--c-black: #05091e;
 	--c-blue: #46b4ff;
@@ -61,7 +80,7 @@
 body {
 	margin: 0;
 	color: var(--c-white);
-	background-color: var(--b-bg);
+	background-color: var(--atom-bg);
 	font-family: 'Inter', 'system-ui', sans-serif;
 }
 
@@ -116,3 +135,24 @@ h1 {
 		width: 40vw;
 	}
 }
+
+/* ; Based on One Dark Syntax v1.8.0 and One Dark UI v1.10.8 themes for GitHub's Atom text editor
+; One Dark Syntax Copyright (c) 2016 GitHub Inc https://github.com/atom/one-dark-syntax
+; One Dark UI © Copyright (c) 2014 GitHub Inc. https://github.com/atom/one-dark-ui
+atom/one/dark/name = Atom One Dark
+atom/one/dark/background = #282c34
+atom/one/dark/currentline = #0A99bbff
+atom/one/dark/currentcell = #00000000
+atom/one/dark/occurrence = #434957
+atom/one/dark/ctrlclick = #56b6c2
+atom/one/dark/sideareas = #21252b
+atom/one/dark/matched_p = #434957
+atom/one/dark/unmatched_p = #4Dff0000
+atom/one/dark/normal = ('#abb2bf', False, False)
+atom/one/dark/keyword = ('#c678dd', False, False)
+atom/one/dark/builtin = ('#56b6c2', False, False)
+atom/one/dark/definition = ('#61afef', False, False)
+atom/one/dark/comment = ('#5c6370', False, True)
+atom/one/dark/string = ('#98c379', False, False)
+atom/one/dark/number = ('#d19a66', False, False)
+atom/one/dark/instance = ('#e5c07b', False, True) */

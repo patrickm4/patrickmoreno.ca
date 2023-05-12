@@ -19,21 +19,19 @@ const projects = (await Astro.glob('./project/**/*.md'))
 			description="What's Patrick been up to 🤔"
 		/>
 		<style>
-			.grid {
-				display: grid;
-				grid-gap: 3rem;
+			.wrapper.bio {
+				max-width: 50em;
 			}
-			.title {
-				margin-top: 2rem;
-				margin-bottom: 2rem;
+			.heading-projects {
+				margin-left: 2rem;
 			}
 		</style>
 	</head>
 	<body>
 		<Nav />
 		<div class="wrapper">
-			<h1 class="title">Projects</h1>
-			<div class="grid">
+			<h1 class="heading-projects">Projects</h1>
+			<div class="bio wrapper">
 				{projects.map((project) => <PortfolioPreview project={project} />)}
 			</div>
 		</div>
