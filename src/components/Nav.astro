@@ -6,9 +6,21 @@
 	}
 	<a class="link" href="/about/"> About</a>	
 	<a class="link" href="/projects/"> Portfolio</a>
+	<a class="link" id="email-nav-link" href="mailto:patrickmoreno444@gmail.com">Email</a>
 	<!-- <a class="link" href="/posts/"> Posts</a> -->
-	<a class="link" href="/contact/"> Contact</a>
 </nav>
+
+<script>
+	const emailNavLink = document.getElementById('email-nav-link')
+
+	emailNavLink?.addEventListener('mouseenter', () => {
+		emailNavLink.innerText = 'patrickmoreno444@gmail.com'
+	})
+	emailNavLink?.addEventListener('mouseleave', () => {
+		emailNavLink.innerText = 'Email'
+	})
+
+</script>
 
 <style>
 	nav {
