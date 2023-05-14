@@ -2,6 +2,8 @@
 import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
+const yearsOfExp = new Date().getFullYear() - 2019;
+
 ---
 
 <html lang="en">
@@ -33,6 +35,22 @@ import Nav from '../components/Nav.astro';
 			.heading-about {
 				margin-left: 2rem;
 			}
+			.skills-table {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+				margin-bottom: 2rem;
+			}
+			.skills-second-col {
+				width: 60%
+			}
+			.about-header-3 {
+				margin-bottom: .25rem 0 !important;
+			}
+			.work-exp-date {
+				line-height: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -41,21 +59,97 @@ import Nav from '../components/Nav.astro';
 			<h1 class="heading-about">About Me</h1>
 			<div class="bio wrapper">
 				<p>
-					I started my journey quite early attempting to understand big books on HTML from the library in elementary. In highschool I was manipulating webpages and graphics on social sites for friends and myself. After trying out some Java and C++ courses in my under grad I changed my studies over to software engineering. Completed a diploma in Digital Design & Development from British Columbia Institute of Technology with distinction.
+					I started my journey quite early attempting to understand big books on HTML from the library in elementary. In highschool I was manipulating webpages and graphics on social sites for friends and myself. After trying out some Java and C++ courses in my under grad I changed my studies over to software engineering. Completed a diploma in Digital Design & Development from British Columbia Institute of Technology with distinction. Now I am out getting field tested and blazing my way through the jungle that is tech!
 				</p>
 
+					<!-- <input type="text" placeholder="Search Skills"/> -->
 				<h2>Skills</h2>
-				<h3>Proficient</h3>
-				<p>
-					HTML5, CSS3, Javascript, Vue, Nodejs, CouchDB (NoSQL)
-				</p>
-				<h3>Experienced</h3>
-				<h3>Knowledgable</h3>
+				<div class="skills-table">
+					<h3>Proficient</h3>
+					<div class="skills-second-col">
+						HTML5, CSS3, Javascript ES6+, Vue, Nodejs, Express, Git, REST, JSON, CouchDB (NoSQL), PouchDB, Linux, PM2, Slack
+					</div>
+				</div>
+				<div class="skills-table">
+					<h3>Experienced</h3>
+					<div class="skills-second-col">
+						Electron, React, AWS(S3), Bootstrap, Illustrator, Photoshop, UI/UX Design, PuTTY, SSH, SSL, Wordpress, Postman, Nodemailer, Trello, Digital Ocean
+					</div>
+				</div>
+				<div class="skills-table">
+					<h3>Knowledgable</h3>
+					<div class="skills-second-col">
+						Bash & Batch scripting, Cron, MongoDB, Figma, Invision, Laravel, PHP, Cypress, Jest, Nginx, MySQL, Stripe 
+					</div>
+				</div>
 
-				<h2>Work Experience</h2>
-				<p>
-					Currently working at TMMedia, prior to this I was working for BCPVA supervised by TMMedia. Before that and after during my studies I did a two month internship at ACL/Galvanize in Vancouver.
-				</p>
+				<h2>Work Experience - {yearsOfExp} years</h2>	
+				<div class="skills-table">
+					<div>
+						<h3 class="about-header-3">TMMedia</h3>
+						<div class="work-exp-date">2019 - Present</div>
+					</div>
+					<div class="skills-second-col">
+						<li>
+							Developing and maintaining dance competition registration and management web application using Vue, Nodejs and CouchDB
+						</li>
+						<li>
+							Improving internal tools for video, photo production using Laravel, Vue and Electron
+						</li>
+						<li>
+							Monitor, and fix issues with servers serving company websites, and web apps, using systemctl, nginx, PM2 and other utilities
+						</li>
+						<li>
+							Developed kiosk software and TV slideshow web app using Electron and PHP
+						</li>
+						<li>
+							Interviewd, and guided design intern
+						</li>
+						<li>
+							Design low and high fidelity mockups using, Illustrator and Figma
+						</li>
+					</div>
+				</div>
+				<div class="skills-table">
+					<div>
+						<h3 class="about-header-3">BCPVA</h3>
+						<div class="work-exp-date">2019 (2 Months)</div>
+					</div>
+					<div class="skills-second-col">
+						<li>
+							Designed mockups of new website with Illustrator
+						</li>
+						<li>
+							Created sitemap, styleguides, iconography and documentation
+						</li>
+						<li>
+							Developed website with wordpress using custom functions and CSS
+						</li>
+					</div>
+				</div>
+				<div class="skills-table">
+					<div>
+						<h3 class="about-header-3">ACL/Galvanize</h3>
+						<div class="work-exp-date">2019 (2 Months)</div>
+					</div>
+					<div class="skills-second-col">
+						<li>
+							Tested components with Jest/React Testing Library and Cypress.io
+						</li>
+						<li>
+							Assited with component migration to a new UI Library
+						</li>
+						<li>
+							Documented react components
+						</li>
+						<li>
+							Collaborated with designers to setup new tokens
+						</li>
+						<li>
+							Created tickets with Jira
+						</li>
+					</div>
+				</div>
 			</div>
 		</div>
 		<Footer />
