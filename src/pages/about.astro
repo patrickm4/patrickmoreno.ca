@@ -12,7 +12,7 @@ const yearsOfExp = new Date().getFullYear() - 2019;
 			title="Patrick Moreno"
 			description="What's Patrick been up to 🤔"
 		/>
-		<style>
+		<style scoped>
 			.heroImg {
 				max-height: 24rem;
 				object-fit: cover;
@@ -50,6 +50,13 @@ const yearsOfExp = new Date().getFullYear() - 2019;
 			}
 			.work-exp-date {
 				line-height: 0;
+				color:var(--atom-string);
+			}
+			h2 {
+				color:var(--atom-instance);
+			}
+			h3 {
+				color:var(--atom-element);
 			}
 		</style>
 	</head>
