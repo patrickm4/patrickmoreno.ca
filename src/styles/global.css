@@ -136,6 +136,11 @@ h1 {
 	}
 }
 
+.link:hover,
+.link:focus {
+	color: var(--t-active);
+}
+
 /* ; Based on One Dark Syntax v1.8.0 and One Dark UI v1.10.8 themes for GitHub's Atom text editor
 ; One Dark Syntax Copyright (c) 2016 GitHub Inc https://github.com/atom/one-dark-syntax
 ; One Dark UI © Copyright (c) 2014 GitHub Inc. https://github.com/atom/one-dark-ui
