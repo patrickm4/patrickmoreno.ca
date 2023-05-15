@@ -3,11 +3,9 @@
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
 
 // Data Fetching: List all Markdown posts in the repo.
 const projects = await Astro.glob('./project/**/*.md');
-const featuredProject = projects[0];
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -28,12 +26,7 @@ const featuredProject = projects[0];
 			.hero {
 				position: relative;
 				overflow: hidden;
-			}
-
-			@media (min-width: 750px) {
-				.hero {
-					height: 45vw;
-				}
+				height:100vh;
 			}
 
 			.img {
@@ -43,6 +36,11 @@ const featuredProject = projects[0];
 			}
 			.front-about-img {
 				margin-right: 4rem;
+			}
+			@media (max-width:750px) {
+				.front-about-img {
+					display:none;
+				}
 			}
 			.gradient,
 			.gradient2 {
@@ -68,7 +66,7 @@ const featuredProject = projects[0];
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 100%;
+				height: 85%;
 				z-index: 10;
 				display: flex;
 				flex-direction: column;
@@ -85,7 +83,7 @@ const featuredProject = projects[0];
 
 			.title {
 				font-weight: 900;
-				font-size: var(--f-u6);
+				font-size: var(--f-u10);
 				margin-bottom: 0.5rem;
 				margin-top: 0;
 			}
@@ -96,77 +94,11 @@ const featuredProject = projects[0];
 				}
 			}
 
-			.grid {
-				display: grid;
-				grid-gap: 2rem;
-			}
-
-			@media (min-width: 1200px) {
-				.grid {
-					grid-template-columns: 2fr 1fr;
-				}
-			}
-
 			.sectionTitle {
 				font-weight: 700;
 				font-size: var(--f-u8);
 				margin-top: 4rem;
 				margin-bottom: 2rem;
-			}
-
-			.roles {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5em;
-				font-size: var(--f-d1);
-			}
-
-			.role {
-				position: relative;
-				display: inline-block;
-				white-space: nowrap;
-				font-weight: 900;
-				color: var(--t-bg);
-				background-color: var(--t-fg);
-				padding: 0.25em 0.5em;
-				z-index: 2;
-			}
-
-			@media (min-width: 750px) {
-				.role {
-					font-size: var(--f-u3);
-				}
-			}
-
-			.role:nth-of-type(1) .invert {
-				background-color: var(--c-pink);
-			}
-
-			.role:nth-of-type(2) .invert {
-				background-color: var(--c-blue);
-			}
-
-			.role:nth-of-type(3) .invert {
-				background-color: var(--c-green);
-			}
-
-			.role:hover .invert {
-				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-			}
-
-			.invert {
-				position: absolute;
-				color: var(--t-fg);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				pointer-events: none;
-				clip-path: polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%);
-				transition: clip-path cubic-bezier(0.4, 0, 0.5, 1) 150ms;
 			}
 
 			.desc {
@@ -178,8 +110,14 @@ const featuredProject = projects[0];
 			.subtitle {
 				display: block;
 				font-weight: 400;
-				font-size: var(--f-d6);
+				font-size: var(--f-d10);
 				letter-spacing: -0.0625em;
+			}
+
+			@media (max-width: 750px) {
+				.sub-title {
+					width:60vw;
+				}
 			}
 
 			.bio {
@@ -212,6 +150,28 @@ const featuredProject = projects[0];
 				align-items: center;
 				justify-content: space-between;
 			}
+			
+			.shape-container {
+				margin-left:100px;
+			}
+			#shapes{
+				position:relative;
+				height: 250px;
+				width: 250px;
+				border: 5px solid var(--c-white);
+				transition: transform 2s ease, border-radius 0.5s ease;
+				overflow: visible;
+			}
+			@media (max-width: 895px) {
+				.shape-container {
+					margin-left:0;
+				}
+				#shapes {
+					margin-left:0;
+					height: 350px;
+					width: 350px;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -223,11 +183,14 @@ const featuredProject = projects[0];
 						<h1 class="title">
 							Patrick Moreno
 						</h1>
-						<h2>It's me. hi. I'm the solution. it's me</h2>
+						<h2 class="sub-title">It's me. hi. I'm the solution. it's me</h2>
 						<!-- <h2>Full-time badass, part-time web developer</h2> -->
 					</div>
 					<!-- TODO stop spinning on hover -->
-					<div id="shapes" style="position:absolute;right:-55%;"></div>
+					<!-- <div id="shapes" style="position:absolute;right:-20vw;"></div> -->
+					<div class="shape-container">
+						<div id="shapes"></div>
+					</div>
 				</div>
 				<div class="front-page-subhead">
 					I'm a full stack developer based out of BC, Canada. I'm always striving to build optimized code and amazing user experiences. Currently employed at <a href="https://www.tmmedia.ca/" target="_blank" class="link">Techno Monkey Media.</a>
@@ -258,6 +221,7 @@ const featuredProject = projects[0];
 						</div>
 					</div>
 					<div>
+						<!-- TODO display none below 750px -->
 						<img class="front-about-img" src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg"/>
 					</div>
 				</div>
