@@ -41,15 +41,17 @@ const yearsOfExp = new Date().getFullYear() - 2019;
 				justify-content: space-between;
 				width: 100%;
 				margin-bottom: 2rem;
+				flex-wrap: wrap;
 			}
 			.skills-second-col {
-				width: 60%
+				width: 60%;
 			}
 			.about-header-3 {
 				margin-bottom: .25rem 0 !important;
 			}
 			.work-exp-date {
 				line-height: 0;
+				margin-bottom: 2rem;
 				color:var(--atom-string);
 			}
 			h2 {
@@ -72,19 +74,19 @@ const yearsOfExp = new Date().getFullYear() - 2019;
 					<!-- <input type="text" placeholder="Search Skills"/> -->
 				<h2>Skills</h2>
 				<div class="skills-table">
-					<h3>Proficient</h3>
+					<h3 class="skills-first-col">Proficient</h3>
 					<div class="skills-second-col">
 						HTML5, CSS3, Javascript ES6+, Vue, Nodejs, Express, Git, REST, JSON, CouchDB (NoSQL), PouchDB, Linux, PM2, Slack
 					</div>
 				</div>
 				<div class="skills-table">
-					<h3>Experienced</h3>
+					<h3 class="skills-first-col">Experienced</h3>
 					<div class="skills-second-col">
 						Electron, React, AWS(S3), Bootstrap, Illustrator, Photoshop, UI/UX Design, PuTTY, SSH, SSL, Wordpress, Postman, Nodemailer, Trello, Digital Ocean
 					</div>
 				</div>
 				<div class="skills-table">
-					<h3>Knowledgable</h3>
+					<h3 class="skills-first-col">Knowledgable</h3>
 					<div class="skills-second-col">
 						Bash & Batch scripting, Cron, MongoDB, Figma, Invision, Laravel, PHP, Cypress, Jest, Nginx, MySQL, Stripe 
 					</div>
