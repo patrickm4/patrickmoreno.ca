@@ -107,11 +107,11 @@ const projects = await Astro.glob('./project/**/*.md');
 				margin-bottom: 0;
 			}
 
-			.subtitle {
+			.sub-title {
 				display: block;
-				font-weight: 400;
-				font-size: var(--f-d10);
-				letter-spacing: -0.0625em;
+				font-weight: bold;
+				font-size: 1.5rem;
+				font-family: 'Inter', 'system-ui', sans-serif;
 			}
 
 			@media (max-width: 750px) {
@@ -183,7 +183,7 @@ const projects = await Astro.glob('./project/**/*.md');
 						<h1 class="title">
 							Patrick Moreno
 						</h1>
-						<h2 class="sub-title">It's me. Hi. I'm the solution. It's me</h2>
+						<div class="sub-title">It's me. Hi. I'm the solution. It's me</div>
 						<!-- <h2>Full-time badass, part-time web developer</h2> -->
 					</div>
 					<!-- TODO stop spinning on hover -->

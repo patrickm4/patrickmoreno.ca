@@ -22,7 +22,15 @@ const { content } = Astro.props;
 				align-items: center;
 				justify-content: center;
 			}
-
+			/* .hero::before {
+				content: "";
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
+				background-color:rgba(0,0,0,0.2);
+			} */
 			.tag {
 				margin-left: 0.5em;
 				margin-right: 0.5em;
@@ -47,6 +55,7 @@ const { content } = Astro.props;
 				font-weight: 900;
 				text-transform: uppercase;
 				letter-spacing: 0.0625em;
+				text-align: center;
 			}
 
 			.leadIn {
@@ -82,16 +91,19 @@ const { content } = Astro.props;
 	</head>
 	<body>
 		<Nav />
-		<header style={`background-image:url(${content.img})`} class="hero">
+		<!-- <header style={`background-image:url(${content.img})`} class="hero">
 			<h1 class="title">{content.title}</h1>
-		</header>
+		</header> -->
+		<div>
+			<h1 class="title">{content.title}</h1>
+		</div>
 		<div class="leadIn">
 			<div class="wrapper">
 				{content.tags.map((t) => <span class="tag">{t}</span>)}
 				<h3 class="tagline">{content.description}</h3>
 				<div>
 					<label>Repo:</label>
-					<a href={content.repoLink}>{content.repoName}</h4>
+					<a href={content.repoLink} class="link">{content.repoName}</h4>
 				</div>	
 			</div>
 		</div>

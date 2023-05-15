@@ -1,7 +1,7 @@
 <nav>
 	{ Astro.url.pathname !== '/' && 
 		<a class="link" href="/">
-			<div class="monogram">PM</div>
+			<div class="monogram" id="monogram">PM</div>
 		</a>
 	}
 	<a class="link" href="/about/"> About</a>	
@@ -15,21 +15,34 @@
 <script>
 	const emailNavLink = document.getElementById('email-nav-link')
 	const emailLinkContainer = document.getElementById('email-link-container')
+	const monogram = document.getElementById('monogram')
 
-	emailNavLink?.addEventListener('mouseenter', () => {
-		emailNavLink.innerText = 'patrickmoreno444@gmail.com'
-		emailNavLink.style.color = '#000'
-		if (emailLinkContainer) {
-			emailLinkContainer.style.backgroundColor = `var(--atom-string)`
-		}
+	monogram?.addEventListener('mouseenter', () => {
+		monogram.style.borderRadius = '0'
 	})
-	emailNavLink?.addEventListener('mouseleave', () => {
-		emailNavLink.style.backgroundColor = ''
-		emailNavLink.innerText = 'Email'
-		emailNavLink.style.color = '#98c379'
-		if (emailLinkContainer) {
-			emailLinkContainer.style.backgroundColor = ''
+	monogram?.addEventListener('mouseleave', () => {
+		monogram.style.borderRadius = '50%'
+
+	})
+
+
+	emailLinkContainer?.addEventListener('mouseenter', () => {
+		if (emailNavLink) {
+			emailNavLink.innerText = 'patrickmoreno444@gmail.com'
+			emailNavLink.style.color = '#21252b'
 		}
+		emailLinkContainer.style.backgroundColor = `var(--atom-string)`
+		emailLinkContainer.style.borderRadius = '25px'
+	})
+	emailLinkContainer?.addEventListener('mouseleave', () => {
+		if (emailNavLink) {
+			emailNavLink.style.backgroundColor = ''
+			emailNavLink.innerText = 'Email'
+			emailNavLink.style.color = '#98c379'
+		}
+		emailLinkContainer.style.backgroundColor = ''
+		emailLinkContainer.style.borderRadius = '0px'
+		
 	})
 
 </script>
@@ -39,7 +52,6 @@
 		padding: 2px 10px;
 		border: 1px solid;
 		border-color: var(--atom-number);
-		border-radius: 5px;
 	}
 	nav {
 		display: flex;
