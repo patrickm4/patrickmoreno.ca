@@ -32,6 +32,14 @@
 		margin-left: 4rem;
 	}
 
+	@media (max-width: 750px) {
+		nav {
+			width:100vw;
+			justify-content: center;
+			margin-left:0;
+		}
+	}
+
 	.link {
 		color: var(--atom-string);
 		display: block;
@@ -40,6 +48,12 @@
 		text-transform: uppercase;
 		padding-top: 0.75em;
 		padding-bottom: 0.75em;
+	}
+
+	@media (max-width: 750px) {
+		.link {
+			font-size: var(--f-u1)
+		}
 	}
 
 	.monogram {
