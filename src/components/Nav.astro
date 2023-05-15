@@ -6,23 +6,41 @@
 	}
 	<a class="link" href="/about/"> About</a>	
 	<a class="link" href="/projects/"> Portfolio</a>
-	<a class="link" id="email-nav-link" href="mailto:patrickmoreno444@gmail.com">Email</a>
+	<div class="email-link-container" id="email-link-container">
+		<a class="link" id="email-nav-link" href="mailto:patrickmoreno444@gmail.com">Email</a>
+	</div>
 	<!-- <a class="link" href="/posts/"> Posts</a> -->
 </nav>
 
 <script>
 	const emailNavLink = document.getElementById('email-nav-link')
+	const emailLinkContainer = document.getElementById('email-link-container')
 
 	emailNavLink?.addEventListener('mouseenter', () => {
 		emailNavLink.innerText = 'patrickmoreno444@gmail.com'
+		emailNavLink.style.color = '#000'
+		if (emailLinkContainer) {
+			emailLinkContainer.style.backgroundColor = `var(--atom-string)`
+		}
 	})
 	emailNavLink?.addEventListener('mouseleave', () => {
+		emailNavLink.style.backgroundColor = ''
 		emailNavLink.innerText = 'Email'
+		emailNavLink.style.color = '#98c379'
+		if (emailLinkContainer) {
+			emailLinkContainer.style.backgroundColor = ''
+		}
 	})
 
 </script>
 
 <style>
+	.email-link-container {
+		padding: 2px 10px;
+		border: 1px solid;
+		border-color: var(--atom-number);
+		border-radius: 5px;
+	}
 	nav {
 		display: flex;
 		gap: 1rem;
