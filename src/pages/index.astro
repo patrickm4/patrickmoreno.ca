@@ -36,6 +36,8 @@ const projects = await Astro.glob('./project/**/*.md');
 			}
 			.front-about-img {
 				margin-right: 4rem;
+				border: 3px solid;
+				border-color: var(--atom-element);
 			}
 			@media (max-width:750px) {
 				.front-about-img {
@@ -203,10 +205,10 @@ const projects = await Astro.glob('./project/**/*.md');
 						<h3 class="sectionTitle">👋</h3>
 						<div class="bio">
 							<p>
-								I am focused and passionate about software engineering. A part of me also loves to design.
+								I am passionate about web development and software engineering. A part of me also loves to design.
 							</p>
 							<p>
-								Currently expanding my knowledge in C# and Rust.
+								Adept in JS but always learning. Currently expanding my knowledge in C# and Rust.
 							</p>
 							<p>
 								Check me out on
@@ -221,7 +223,7 @@ const projects = await Astro.glob('./project/**/*.md');
 					</div>
 					<div>
 						<!-- TODO display none below 750px -->
-						<img class="front-about-img" src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg"/>
+						<img class="front-about-img" src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg" alt="A picture of me!"/>
 					</div>
 				</div>
 				<!-- <div>
