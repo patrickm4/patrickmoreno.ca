@@ -95,6 +95,11 @@ const projects = await Astro.glob('./project/**/*.md');
 					font-size: var(--f-u12);
 				}
 			}
+			@media (max-width: 640px) {
+				.title {
+					margin-right: 1rem;
+				}
+			}
 
 			.sectionTitle {
 				font-weight: 700;
@@ -186,9 +191,7 @@ const projects = await Astro.glob('./project/**/*.md');
 							Patrick Moreno
 						</h1>
 						<div class="sub-title">It's me. Hi. I'm the solution. It's me</div>
-						<!-- <h2>Full-time badass, part-time web developer</h2> -->
 					</div>
-					<!-- TODO stop spinning on hover -->
 					<div class="shape-container">
 						<div id="shapes"></div>
 					</div>
@@ -222,23 +225,9 @@ const projects = await Astro.glob('./project/**/*.md');
 						</div>
 					</div>
 					<div>
-						<!-- TODO display none below 750px -->
 						<img class="front-about-img" src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg" alt="A picture of me!"/>
 					</div>
 				</div>
-				<!-- <div>
-					done <div>Contact</div>
-					done <div>About me</div>
-					done <div>Currently Learning</div>
-					<div>Current project</div>
-					<div>Delicious recipe i've cooked recently</div>
-					<div>Resume</div>
-					<div>Education, make it downloadable and print friendly</div>
-					<div>Blog</div>
-					done <div>Photo of me</div>
-					done 	<div>Github, Linkedin links</div>
-					<div>shop</div>
-				  </div>  -->
 			</div>
 		</main>
 		<Footer />
