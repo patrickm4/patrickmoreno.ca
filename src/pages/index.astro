@@ -1,271 +1,294 @@
 ---
 // Component Imports
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
+import MainHead from "../components/MainHead.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 // Data Fetching: List all Markdown posts in the repo.
-const projects = await Astro.glob('./project/**/*.md');
+const projects = await Astro.glob("./project/**/*.md");
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="en">
-	<head>
-		<MainHead
-			title="Patrick Moreno"
-			description="Patrick Moreno Full Stack Developer"
-		/>
-		<style>
-			.wrapper {
-				margin-top: 2em;
-				margin-bottom: 2em;
-			}
+  <head>
+    <MainHead
+      title="Patrick Moreno"
+      description="Patrick Moreno Software Developer"
+    />
+    <style>
+      .wrapper {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
 
-			.hero {
-				position: relative;
-				overflow: hidden;
-				height:100vh;
-			}
+      .hero {
+        position: relative;
+        overflow: hidden;
+        height: 100vh;
+      }
 
-			.img {
-				display: block;
-				width: 100%;
-				height: auto;
-			}
-			.front-about-img {
-				margin-right: 4rem;
-				border: 3px solid;
-				border-color: var(--atom-element);
-			}
-			@media (max-width:750px) {
-				.front-about-img {
-					display:none;
-				}
-			}
-			.gradient,
-			.gradient2 {
-				background-image: url('/assets/mesh-gradient.jpg');
-				background-size: cover;
-				pointer-events: none;
-				mix-blend-mode: screen;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 2;
-			}
+      .img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .front-about-img {
+        margin-right: 4rem;
+        border: 3px solid;
+        border-color: var(--atom-element);
+      }
+      @media (max-width: 750px) {
+        .front-about-img {
+          display: none;
+        }
+      }
+      .gradient,
+      .gradient2 {
+        background-image: url("/assets/mesh-gradient.jpg");
+        background-size: cover;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
 
-			.gradient2 {
-				mix-blend-mode: multiply;
-				background-size: cover;
-			}
+      .gradient2 {
+        mix-blend-mode: multiply;
+        background-size: cover;
+      }
 
-			.overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 85%;
-				z-index: 10;
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				justify-content: center;
-				padding-left: 2rem;
-			}
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 85%;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 2rem;
+      }
 
-			@media (min-width: 750px) {
-				.overlay {
-					padding-left: 4rem;
-				}
-			}
+      @media (min-width: 750px) {
+        .overlay {
+          padding-left: 4rem;
+        }
+      }
 
-			.title {
-				font-weight: 900;
-				font-size: var(--f-u10);
-				margin-bottom: 0.5rem;
-				margin-top: 0;
-			}
+      .title {
+        font-weight: 900;
+        font-size: var(--f-u10);
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+      }
 
-			@media (min-width: 750px) {
-				.title {
-					font-size: var(--f-u12);
-				}
-			}
-			@media (max-width: 640px) {
-				.title {
-					margin-right: 1rem;
-				}
-			}
+      @media (min-width: 750px) {
+        .title {
+          font-size: var(--f-u12);
+        }
+      }
+      @media (max-width: 640px) {
+        .title {
+          margin-right: 1rem;
+        }
+      }
 
-			.sectionTitle {
-				font-weight: 700;
-				font-size: var(--f-u8);
-				margin-top: 4rem;
-				margin-bottom: 2rem;
-			}
+      .sectionTitle {
+        font-weight: 700;
+        font-size: var(--f-u8);
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+      }
 
-			.desc {
-				font-size: var(--f-u1);
-				margin-top: 1.5rem;
-				margin-bottom: 0;
-			}
+      .desc {
+        font-size: var(--f-u1);
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+      }
 
-			.sub-title {
-				display: block;
-				font-weight: bold;
-				font-size: 1.5rem;
-				font-family: 'Inter', 'system-ui', sans-serif;
-			}
+      .sub-title {
+        display: block;
+        font-weight: bold;
+        font-size: 1.5rem;
+        font-family: "Inter", "system-ui", sans-serif;
+      }
 
-			@media (max-width: 750px) {
-				.sub-title {
-					width:60vw;
-				}
-			}
+      @media (max-width: 750px) {
+        .sub-title {
+          width: 60vw;
+        }
+      }
 
-			.bio {
-				line-height: 2;
-				margin-bottom: 2rem;
-			}
+      .bio {
+        line-height: 2;
+        margin-bottom: 2rem;
+      }
 
-			.bio > span:first-of-type {
-				line-height: 1;
-				margin-bottom: 0.5em;
-				display: block;
-				font-weight: 700;
-				font-size: var(--f-u4);
-			}
+      .bio > span:first-of-type {
+        line-height: 1;
+        margin-bottom: 0.5em;
+        display: block;
+        font-weight: 700;
+        font-size: var(--f-u4);
+      }
 
-			.buttonContainer {
-				text-align: center;
-				margin-top: 2em;
-			}
-			.link {
-				text-decoration: none;
-				color: var(--atom-instance);
-			}
-			.more-about-btn {
-				margin-top: 2rem;
-			}
-			.hi-section {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-			
-			.shape-container {
-				margin-left:100px;
-			}
-			#shapes{
-				position:relative;
-				height: 250px;
-				width: 250px;
-				border: 5px solid var(--c-white);
-				transition: transform 2s ease, border-radius 0.5s ease;
-				overflow: visible;
-			}
-			@media (max-width: 895px) {
-				.shape-container {
-					margin-left:0;
-				}
-				#shapes {
-					margin-left:0;
-					height: 350px;
-					width: 350px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Nav />
-		<header class="hero">
-			<div class="overlay">
-				<div style="display:flex;align-items:center;position:relative;">
-					<div>
-						<h1 class="title">
-							Patrick Moreno
-						</h1>
-						<div class="sub-title">It's me. Hi. I'm the solution. It's me</div>
-					</div>
-					<div class="shape-container">
-						<div id="shapes"></div>
-					</div>
-				</div>
-				<div class="front-page-subhead">
-					I'm a full stack developer based out of BC, Canada. I'm always striving to build optimized code and amazing user experiences. Currently employed at <a href="https://www.tmmedia.ca/" target="_blank" class="link">Techno Monkey Media.</a>
-				</div>			
-			</div>
-		</header>
-		<main class="wrapper">
-			<div>
-				<div class="hi-section">
-					<div>
-						<h3 class="sectionTitle">👋</h3>
-						<div class="bio">
-							<p>
-								I am passionate about web development and software engineering. A part of me also loves to design.
-							</p>
-							<p>
-								Adept in JS but always learning. Currently expanding my knowledge in C# and Rust.
-							</p>
-							<p>
-								Check me out on
-								<a class="link" href="https://www.linkedin.com/in/patrick-moreno/" target="_blank"> LinkedIn</a>
-								and
-								<a class="link" href="https://github.com/patrickm4" target="_blank"> Github</a>
-							</p>
-							<p>
-								<a href="/about" class="button more-about-btn">More about me</a>
-							</p>					
-						</div>
-					</div>
-					<div>
-						<img class="front-about-img" src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg" alt="A picture of me!"/>
-					</div>
-				</div>
-			</div>
-		</main>
-		<Footer />
-		<script>
-			//shape magic
-			let shape = document.getElementById('shapes');
-			let degree = 0;
-			let timeId, isCircle = false;
-			let spinning = false;
+      .buttonContainer {
+        text-align: center;
+        margin-top: 2em;
+      }
+      .link {
+        text-decoration: none;
+        color: var(--atom-instance);
+      }
+      .more-about-btn {
+        margin-top: 2rem;
+      }
+      .hi-section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-			function rotate() {
-				degree += 90;
-				shape.style.transform = `rotate(${degree}deg)`;
-				if(isCircle){
-					shape.style.borderRadius = '0%';
-					isCircle = false;
-				} else {
-					shape.style.borderRadius = '50%';
-					isCircle = true
-				};
-			}
+      .shape-container {
+        margin-left: 100px;
+      }
+      #shapes {
+        position: relative;
+        height: 250px;
+        width: 250px;
+        border: 5px solid var(--c-white);
+        transition: transform 2s ease, border-radius 0.5s ease;
+        overflow: visible;
+      }
+      @media (max-width: 895px) {
+        .shape-container {
+          margin-left: 0;
+        }
+        #shapes {
+          margin-left: 0;
+          height: 350px;
+          width: 350px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Nav />
+    <header class="hero">
+      <div class="overlay">
+        <div style="display:flex;align-items:center;position:relative;">
+          <div>
+            <h1 class="title">Patrick Moreno</h1>
+            <div class="sub-title">It's me. Hi. I'm the solution. It's me</div>
+          </div>
+          <div class="shape-container">
+            <div id="shapes"></div>
+          </div>
+        </div>
+        <div class="front-page-subhead">
+          I'm a software developer based out of BC, Canada. I'm always striving
+          to build optimized code and amazing user experiences. Currently
+          employed as a front end developer at <a
+            href="https://www.vistaprojects.com/"
+            target="_blank"
+            class="link">Vista Projects.</a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="wrapper">
+      <div>
+        <div class="hi-section">
+          <div>
+            <h3 class="sectionTitle">👋</h3>
+            <div class="bio">
+              <p>
+                I am passionate about web development and software engineering.
+                A part of me also loves to design.
+              </p>
+              <p>
+                Adept in JS but always learning. Currently expanding my
+                knowledge in C# and Rust.
+              </p>
+              <p>
+                Check me out on
+                <a
+                  class="link"
+                  href="https://www.linkedin.com/in/patrick-moreno/"
+                  target="_blank"
+                >
+                  LinkedIn</a
+                >
+                and
+                <a
+                  class="link"
+                  href="https://github.com/patrickm4"
+                  target="_blank"
+                >
+                  Github</a
+                >
+              </p>
+              <p>
+                <a href="/about" class="button more-about-btn">More about me</a>
+              </p>
+            </div>
+          </div>
+          <div>
+            <img
+              class="front-about-img"
+              src="https://patrickmore.ca/wp-content/uploads/2019/02/PatrickMediumShot-300x400.jpg"
+              alt="A picture of me!"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+    <script>
+      //shape magic
+      let shape = document.getElementById("shapes");
+      let degree = 0;
+      let timeId,
+        isCircle = false;
+      let spinning = false;
 
-			function startSpin() {
-				rotate()
-				spinning = true
-				timeId = window.setInterval(rotate, 2000);
-			}
+      function rotate() {
+        degree += 90;
+        shape.style.transform = `rotate(${degree}deg)`;
+        if (isCircle) {
+          shape.style.borderRadius = "0%";
+          isCircle = false;
+        } else {
+          shape.style.borderRadius = "50%";
+          isCircle = true;
+        }
+      }
 
-			document.addEventListener("visibilitychange", function () {
-					if(document.hidden){
-						clearInterval(timeId)
-						spinning = false
-					} else if (!spinning) {
-						startSpin()
-					}
-			})
+      function startSpin() {
+        rotate();
+        spinning = true;
+        timeId = window.setInterval(rotate, 2000);
+      }
 
-			startSpin()
-		</script>
-	</body>
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+          clearInterval(timeId);
+          spinning = false;
+        } else if (!spinning) {
+          startSpin();
+        }
+      });
+
+      startSpin();
+    </script>
+  </body>
 </html>
